@@ -26,7 +26,7 @@ Para agregar los __Headers__ vamos al _Menu Editor_ > _Add Build Phase_ > _Add H
 En los __Headers__ solo impostaremos los archivos con extension _.h_ (estos deben ser colocados en __Public__)
 
 [image Framework21]
-![](https://github.com/jghg02/Framework_iOS/blob/master/img/Framework1.png)
+![](https://raw.githubusercontent.com/jghg02/Framework_iOS/master/img/Framework1.png)
 
 
 

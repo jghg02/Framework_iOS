@@ -24,7 +24,7 @@ Para agregar los __Headers__ vamos al _Menu Editor_ > _Add Build Phase_ > _Add H
 
 ![](https://raw.githubusercontent.com/jghg02/Framework_iOS/master/img/Framework6.png)
 
-En los __Headers__ solo impostaremos los archivos con extension _.h_ (estos deben ser colocados en __Public__)
+En los __Headers__ solo importaremos los archivos con extension _.h_ (estos deben ser colocados en __Public__)
 
 ![](https://raw.githubusercontent.com/jghg02/Framework_iOS/master/img/Framework21.png)
 

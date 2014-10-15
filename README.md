@@ -28,6 +28,32 @@ En los __Headers__ solo importaremos los archivos con extension _.h_ (estos debe
 
 ![](https://raw.githubusercontent.com/jghg02/Framework_iOS/master/img/Framework21.png)
 
+Luego de agregar los _Headers_ es necesario agregar el __script__ para de esta forma cada vez que hagamos el __build__ de la libreria genere queleto de nuestro framework. 
+
+Para esto vamos al _Menu Editor_ > _Add Build Phase_ > _Add Run Script Build Phase_ 
+
+![](https://raw.githubusercontent.com/jghg02/Framework_iOS/master/img/Framework7.png)
+
+![](https://raw.githubusercontent.com/jghg02/Framework_iOS/master/img/Framework8.png)
+
+###Script
+
+	set -e
+
+     mkdir -p "${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.framework/Versions/A/Headers"
+
+     # Link the "Current" version to "A"
+     /bin/ln -sfh A "${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.framework/Versions/Current"
+    /bin/ln -sfh Versions/Current/Headers "${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.framework/Headers"
+    /bin/ln -sfh "Versions/Current/${PRODUCT_NAME}" "${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.framework/${PRODUCT_NAME}"
+
+    # The -a ensures that the headers maintain the source modification date so that we don't constantly
+    # cause propagating rebuilds of files that import these headers.
+    /bin/cp -a "${TARGET_BUILD_DIR}/${PUBLIC_HEADERS_FOLDER_PATH}/" "$   {BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.framework/Versions/A/Headers"
+
+
+
+
 
 
 

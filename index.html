@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+
+    <title>Framework ios by jghg02</title>
+  </head>
+
+  <body>
+
+    <header>
+      <div class="container">
+        <h1>Framework ios</h1>
+        <h2>How to create a Framework in iOS.</h2>
+
+        <section id="downloads">
+          <a href="https://github.com/jghg02/Framework_iOS/zipball/master" class="btn">Download as .zip</a>
+          <a href="https://github.com/jghg02/Framework_iOS/tarball/master" class="btn">Download as .tar.gz</a>
+          <a href="https://github.com/jghg02/Framework_iOS" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
+        </section>
+      </div>
+    </header>
+
+    <div class="container">
+      <section id="main_content">
+        <h1>
+<a name="documentaci%C3%B3n" class="anchor" href="#documentaci%C3%B3n"><span class="octicon octicon-link"></span></a>Documentación.</h1>
+
+<h2>
+<a name="creando-un-framework-en-ios" class="anchor" href="#creando-un-framework-en-ios"><span class="octicon octicon-link"></span></a>Creando un Framework en <em>iOS</em>.</h2>
+
+<p>Lo primero que debemos crear es una <em>Libreria Estatica</em>, para esto vamos a <strong>File</strong> &gt; <strong>New Project</strong> en esta parte seleccionamos <strong>iOS</strong> y dentro de esta sección seleccionamos <strong>Cocoa Touch Static Library</strong></p>
+
+<p><img src="https://raw.githubusercontent.com/jghg02/Framework_iOS/master/img/Framework1.png" alt=""></p>
+
+<p>Luego le damos <em>next</em> y colocamos el <strong>nombre</strong> que va a tener nuestra libreria.</p>
+
+<p>Salvamos nuestro proyecto y seleccionamos el direcctorio donde lo guardaremos. </p>
+
+<p>Una vez creado, debemos ver algo como esto.
+<img src="https://raw.githubusercontent.com/jghg02/Framework_iOS/master/img/Framework3.png" alt=""></p>
+
+<p>Dentro de <strong>Xcode</strong> seleccionamos el <em>Target</em> de la libreria que hemos creado y nos vamos a <em>Build Phase</em> y agregamos los <strong>Headers</strong> (Los cuales seran usados por la app donde importaremos nuestra libreria)</p>
+
+<p><img src="https://raw.githubusercontent.com/jghg02/Framework_iOS/master/img/Framework4.png" alt=""></p>
+
+<p>Para agregar los <strong>Headers</strong> vamos al <em>Menu Editor</em> &gt; <em>Add Build Phase</em> &gt; <em>Add Headers Build Phase</em></p>
+
+<p><img src="https://raw.githubusercontent.com/jghg02/Framework_iOS/master/img/Framework5.png" alt=""></p>
+
+<p><img src="https://raw.githubusercontent.com/jghg02/Framework_iOS/master/img/Framework6.png" alt=""></p>
+
+<p>En los <strong>Headers</strong> solo importaremos los archivos con extension <em>.h</em> (estos deben ser colocados en <strong>Public</strong>)</p>
+
+<p><img src="https://raw.githubusercontent.com/jghg02/Framework_iOS/master/img/Framework21.png" alt=""></p>
+
+<p>Luego de agregar los <em>Headers</em> es necesario agregar el <strong>script</strong> para de esta forma cada vez que hagamos el <strong>build</strong> de la libreria genere queleto de nuestro framework. </p>
+
+<p>Para esto vamos al <em>Menu Editor</em> &gt; <em>Add Build Phase</em> &gt; <em>Add Run Script Build Phase</em> </p>
+
+<p><img src="https://raw.githubusercontent.com/jghg02/Framework_iOS/master/img/Framework7.png" alt=""></p>
+
+<p><img src="https://raw.githubusercontent.com/jghg02/Framework_iOS/master/img/Framework8.png" alt=""></p>
+
+<h3>
+<a name="script" class="anchor" href="#script"><span class="octicon octicon-link"></span></a>Script</h3>
+
+<pre><code>set -e
+
+mkdir -p "${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.framework/Versions/A/Headers"
+
+ # Link the "Current" version to "A"
+ /bin/ln -sfh A "${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.framework/Versions/Current"
+/bin/ln -sfh Versions/Current/Headers "${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.framework/Headers"
+/bin/ln -sfh "Versions/Current/${PRODUCT_NAME}" "${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.framework/${PRODUCT_NAME}"
+
+# The -a ensures that the headers maintain the source modification date so that we don't constantly
+# cause propagating rebuilds of files that import these headers.
+/bin/cp -a "${TARGET_BUILD_DIR}/${PUBLIC_HEADERS_FOLDER_PATH}/" "${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.framework/Versions/A/Headers"
+</code></pre>
+      </section>
+    </div>
+
+    
+  </body>
+</html>

@@ -190,6 +190,54 @@ xcrun xcodebuild -project "${PROJECT_FILE_PATH}" -target "${TARGET_NAME}" -confi
 
 <h3>
 <a name="project-app" class="anchor" href="#project-app"><span class="octicon octicon-link"></span></a>Project App.</h3>
+
+<p>Procedemos a crear un nuevo proyecto <strong>iOS</strong> &gt; <strong>Application</strong> &gt; <strong>Single View App</strong> Colocamos el nombre y un directorio donde se almacenara el nuevo proyecto.</p>
+
+<p>Para poder integrar nuestra nueva app y el <em>framewrok</em> que hemos creado, es necesario crear un <strong>WorkSpace</strong> </p>
+
+<p><img src="https://raw.githubusercontent.com/jghg02/Framework_iOS/master/img/Work1.png" alt=""></p>
+
+<p><img src="https://raw.githubusercontent.com/jghg02/Framework_iOS/master/img/Work2.png" alt=""></p>
+
+<p>Vamos al directorio donde creamos los proyectos y los arrastramos al <strong>WorkSpace</strong> tanto la libreria como nuestra app que hemos creado.</p>
+
+<p><img src="https://raw.githubusercontent.com/jghg02/Framework_iOS/master/img/Work3.png" alt=""></p>
+
+<p><img src="https://raw.githubusercontent.com/jghg02/Framework_iOS/master/img/Work4.png" alt=""></p>
+
+<p>En nuestro proyecto (<strong>TestApp</strong>) creamos una carpeta llamada <em>Libraries</em> y arrastramos la libreria <strong>Testing</strong> (que creamos).</p>
+
+<p><img src="https://raw.githubusercontent.com/jghg02/Framework_iOS/master/img/Work5.png" alt=""></p>
+
+<p><img src="https://raw.githubusercontent.com/jghg02/Framework_iOS/master/img/Work6.png" alt=""></p>
+
+<p><img src="https://raw.githubusercontent.com/jghg02/Framework_iOS/master/img/Work7.png" alt=""></p>
+
+<p>Compilamos el <strong>Target</strong> </p>
+
+<p>Procedemos a agregar la libreria a nuestro proyecto. Para esto vamos al <strong>Target</strong> de nuestra app y en la seccion de <strong>Build Phase</strong> &gt; <strong>Target Dependencies</strong> y agregamos el <em>Bundle</em> y el <em>Target</em> que hemos creado anteriormente. </p>
+
+<p><img src="https://raw.githubusercontent.com/jghg02/Framework_iOS/master/img/Work8.png" alt=""></p>
+
+<p>Por ultimo creamos una carpeta llamada <strong>framework</strong> y copiamos los archivos <strong>.framework</strong> y <strong>.bundle</strong> los cuales son generadmos al momento de compilar nuestra libreria. </p>
+
+<p>Para esto vamos a la carpeta <strong>Products</strong> de la libreria que hemos creado y damos click derecho cobre y ella y seleccionamos <strong>Show in Finder</strong> </p>
+
+<p><img src="https://raw.githubusercontent.com/jghg02/Framework_iOS/master/img/Work9.png" alt=""></p>
+
+<p>Y se vera algo como esto.</p>
+
+<p><img src="https://raw.githubusercontent.com/jghg02/Framework_iOS/master/img/Work10.png" alt=""></p>
+
+<p>Luego a la carpeta <em>framework</em> que creamos arrastramos el archivo con extension <strong>.bundle</strong> y <strong>.framework</strong> </p>
+
+<p><img src="https://raw.githubusercontent.com/jghg02/Framework_iOS/master/img/Work11.png" alt=""></p>
+
+<p><img src="https://raw.githubusercontent.com/jghg02/Framework_iOS/master/img/Work12.png" alt=""></p>
+
+<p>Ya con esto podemos realizar el <em>import</em> en nuestro proyecto.</p>
+
+<p><img src="https://raw.githubusercontent.com/jghg02/Framework_iOS/master/img/Work13.png" alt=""></p>
       </section>
     </div>
 

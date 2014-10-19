@@ -158,6 +158,58 @@ Por ultimo creamos el _Build_ de la __Libreria__ y el __Target__
 
 ###Project App.
 
+Procedemos a crear un nuevo proyecto __iOS__ > __Application__ > __Single View App__ Colocamos el nombre y un directorio donde se almacenara el nuevo proyecto.
+
+Para poder integrar nuestra nueva app y el _framewrok_ que hemos creado, es necesario crear un __WorkSpace__ 
+
+
+![](https://raw.githubusercontent.com/jghg02/Framework_iOS/master/img/Work1.png)
+ 
+ 
+![](https://raw.githubusercontent.com/jghg02/Framework_iOS/master/img/Work2.png)
+
+Vamos al directorio donde creamos los proyectos y los arrastramos al __WorkSpace__ tanto la libreria como nuestra app que hemos creado.
+
+![](https://raw.githubusercontent.com/jghg02/Framework_iOS/master/img/Work3.png)
+
+![](https://raw.githubusercontent.com/jghg02/Framework_iOS/master/img/Work4.png)
+
+En nuestro proyecto (__TestApp__) creamos una carpeta llamada _Libraries_ y arrastramos la libreria __Testing__ (que creamos).
+
+![](https://raw.githubusercontent.com/jghg02/Framework_iOS/master/img/Work5.png)
+
+![](https://raw.githubusercontent.com/jghg02/Framework_iOS/master/img/Work6.png)
+
+![](https://raw.githubusercontent.com/jghg02/Framework_iOS/master/img/Work7.png)
+
+Compilamos el __Target__ 
+
+Procedemos a agregar la libreria a nuestro proyecto. Para esto vamos al __Target__ de nuestra app y en la seccion de __Build Phase__ > __Target Dependencies__ y agregamos el _Bundle_ y el _Target_ que hemos creado anteriormente. 
+
+![](https://raw.githubusercontent.com/jghg02/Framework_iOS/master/img/Work8.png)
+
+Por ultimo creamos una carpeta llamada __framework__ y copiamos los archivos __.framework__ y __.bundle__ los cuales son generadmos al momento de compilar nuestra libreria. 
+
+Para esto vamos a la carpeta __Products__ de la libreria que hemos creado y damos click derecho cobre y ella y seleccionamos __Show in Finder__ 
+
+![](https://raw.githubusercontent.com/jghg02/Framework_iOS/master/img/Work9.png)
+
+Y se vera algo como esto.
+
+![](https://raw.githubusercontent.com/jghg02/Framework_iOS/master/img/Work10.png)
+
+Luego a la carpeta _framework_ que creamos arrastramos el archivo con extension __.bundle__ y __.framework__ 
+
+![](https://raw.githubusercontent.com/jghg02/Framework_iOS/master/img/Work11.png)
+
+![](https://raw.githubusercontent.com/jghg02/Framework_iOS/master/img/Work12.png)
+
+Ya con esto podemos realizar el _import_ en nuestro proyecto.
+
+![](https://raw.githubusercontent.com/jghg02/Framework_iOS/master/img/Work13.png)
+
+
+
 
 
 
